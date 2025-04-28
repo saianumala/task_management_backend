@@ -13,6 +13,65 @@ Before you begin, ensure you have the following installed on your system:
 - [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://yarnpkg.com/)
 - [Git](https://git-scm.com/)
 
+## Technical Choices and Architecture
+
+### Frontend
+
+- **React with Vite**: Chosen for its faster development experience and optimized build process compared to Create React App
+- **Tailwind CSS**: Used for utility-first styling that speeds up the UI development process
+- **Component Architecture**: Organized with a modular component structure to promote reusability
+- **Context API**: Implemented for state management across the application
+- **React Router**: Used for client-side routing and navigation
+
+### Backend
+
+- **Node.js with Express**: Selected for building a scalable and efficient RESTful API
+- **TypeScript**: Implemented for type safety and better developer experience
+- **Prisma ORM**: Used for database access with type-safe queries and migrations
+- **PostgreSQL**: Chosen as the relational database for its robustness and feature set
+- **JWT Authentication**: Implemented for secure user authentication
+- **Zod**: Used for request validation
+- **CORS and Cookie Parser**: Added for cross-origin requests and cookie management
+- **RESTful API Structure**: Follows REST principles with organized controllers and routes
+
+### Architecture Overview
+
+The application follows a client-server architecture:
+
+- **Client**: React SPA that communicates with the backend API
+- **Server**: Express.js API that handles business logic and database operations
+- **Database**: PostgreSQL database managed through Prisma ORM
+
+## Database Schema Description
+
+The database is designed around the following main entities:
+
+### User
+
+Represents an application user who can create and manage tasks:
+
+- `userId`: Unique identifier (UUID)
+- `email`: User's email address (unique)
+- `password`: Hashed password
+- `fullName`: User's full name
+- `createdAt`: Timestamp of account creation
+- `updatedAt`: Timestamp of last update
+- `tasks`: relation with task model
+
+### Task
+
+Represents a task within the system:
+
+- `id`: Unique identifier (UUID)
+- `title`: Task title
+- `description`: Detailed description
+- `status`: Current status (e.g., incomplete and complete)
+- `priority`: Task priority (e.g., LOW, MEDIUM, HIGH)
+- `dueDate`: Deadline for the task
+- `userId`: ID of the user who created the task
+- `createdAt`: Timestamp of task creation
+- `updatedAt`: Timestamp of last update
+
 ## Setup Process
 
 ### Step 1: Create a Project Directory
