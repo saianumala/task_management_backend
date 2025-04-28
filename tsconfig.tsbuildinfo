@@ -1,0 +1,1 @@
+{"root":["./src/app.ts","./src/prismaSingleton.ts","./src/seed.ts","./src/types.d.ts","./src/controllers/taskController.ts","./src/controllers/userController.ts","./src/midddleware/userAuth.ts","./src/routes/index.ts","./src/routes/taskRouter.ts","./src/routes/userRouter.ts","./src/types/taskTypes.ts","./src/types/types.d.ts"],"version":"5.8.3"}
