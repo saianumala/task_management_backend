@@ -7,6 +7,9 @@ import { userSchema } from "../types/taskTypes";
 
 export const updateUserSchema = userSchema.partial();
 
+//  User Login Check
+//  This function checks if the user is logged in by checking the userId in the request object
+//  and returns the user data if logged in, otherwise returns an error message.
 export async function loginCheck(req: Request, res: Response) {
   try {
     console.log("is logged in being checked");
@@ -27,7 +30,10 @@ export async function loginCheck(req: Request, res: Response) {
   }
 }
 
-// signup user
+// User Creation
+// This function creates a new user by hashing the password and storing the user data in the database.
+// It checks if the user already exists and returns an error message if so.
+// If the user is created successfully, it returns the user data.
 export async function createUser(req: Request, res: Response) {
   try {
     console.log("reaching create user");
@@ -69,7 +75,9 @@ export async function createUser(req: Request, res: Response) {
     return;
   }
 }
-
+// User Update
+// This function updates the user information based on the provided data.
+// It checks if the user exists and updates the user data accordingly.
 export async function updateUser(req: Request, res: Response) {
   try {
     const result = updateUserSchema.parse(req.body);
@@ -108,6 +116,9 @@ export async function updateUser(req: Request, res: Response) {
   }
 }
 
+// User Deletion
+// This function deletes the user based on the provided email.
+// It checks if the user exists and deletes the user data accordingly.
 export async function deleteUser(req: Request, res: Response) {
   try {
     const { email } = req.body;

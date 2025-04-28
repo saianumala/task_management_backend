@@ -7,7 +7,6 @@ import {
   loginCheck,
   logout,
   updateUser,
-  // getUserAnalytics,
 } from "../controllers/userController";
 import { userAuthorization } from "../midddleware/userAuth";
 

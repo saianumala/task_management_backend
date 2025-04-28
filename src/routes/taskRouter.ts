@@ -9,7 +9,7 @@ import {
 } from "../controllers/taskController";
 
 const router = Router();
-
+// Routes for tasks
 router.post("/create", userAuthorization, createTask);
 router.patch("/update", userAuthorization, updateTask);
 router.delete("/delete/:taskId", userAuthorization, deleteTask);

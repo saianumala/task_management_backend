@@ -3,10 +3,13 @@ import { taskSchema } from "../types/taskTypes";
 import { z } from "zod";
 import prisma from "../prismaSingleton";
 
+// Update the task schema to include the id field
+// and make all other fields optional
 export const updateTaskSchema = taskSchema.partial().extend({
   id: z.string(),
 });
 
+// Task creation
 export async function createTask(req: Request, res: Response) {
   try {
     console.log("result", req.body);
@@ -38,6 +41,8 @@ export async function createTask(req: Request, res: Response) {
     return;
   }
 }
+
+// Get all tasks with filter
 export async function getAllTasks(req: Request, res: Response) {
   try {
     console.log("reaching get all tasks", req.query);
@@ -68,6 +73,7 @@ export async function getAllTasks(req: Request, res: Response) {
     return;
   }
 }
+// Get task by ID
 export async function getTaskById(req: Request, res: Response) {
   try {
     const taskId = req.params.taskId;
@@ -87,6 +93,7 @@ export async function getTaskById(req: Request, res: Response) {
     return;
   }
 }
+// Update task
 export async function updateTask(req: Request, res: Response) {
   try {
     const result = updateTaskSchema.parse(req.body);
@@ -125,6 +132,7 @@ export async function updateTask(req: Request, res: Response) {
     return;
   }
 }
+// Delete task
 export async function deleteTask(req: Request, res: Response) {
   try {
     const { taskId } = req.params;
