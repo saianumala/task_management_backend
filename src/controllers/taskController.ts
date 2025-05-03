@@ -37,7 +37,7 @@ export async function createTask(req: Request, res: Response) {
     return;
   } catch (error) {
     console.error("error", error);
-    res.status(500).json({ error: "Failed to create task" });
+    res.status(500).json({ message: "Failed to create task" });
     return;
   }
 }
